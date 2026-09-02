@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\UsuariosController;
+use App\Http\Controllers\API\CarreraController;
+use App\Http\Controllers\API\MatriculaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,7 +32,6 @@ Route::post('login', [AuthController::class, 'login'])->name('login');
 /******************************************************************
  *                       RUTAS PROTEGIDAS                         *
  ******************************************************************/
-// todo lo que esté aquí dentro requiere el token "auth_token"
 Route::middleware('auth:sanctum')->group(function () {
 
     // --- SESIÓN ---
@@ -42,6 +43,18 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::patch('usuarios/{id}/activar', [UsuariosController::class, 'activar']);
     Route::apiResource('usuarios', UsuariosController::class);
     
-
+    //carreras
+    Route::get('/carreras', [CarreraController::class, 'index']);
+    Route::post('/carreras', [CarreraController::class, 'store']);
+    Route::get('/carreras/{id}', [CarreraController::class, 'show']);
+    Route::put('/carreras/{id}', [CarreraController::class, 'update']);
+    Route::delete('/carreras/{id}', [CarreraController::class, 'destroy']);
+    //matriculas
+    Route::get('/matriculas', [MatriculaController::class, 'index']);
+    Route::post('/matriculas', [MatriculaController::class, 'store']);
+    Route::get('/matriculas/{id}', [MatriculaController::class, 'show']);
+    Route::put('/matriculas/{id}', [MatriculaController::class, 'update']);
+    Route::delete('/matriculas/{id}', [MatriculaController::class, 'destroy']);
     
+
 });

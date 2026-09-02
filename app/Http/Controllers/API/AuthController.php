@@ -10,7 +10,7 @@ use Exception;
 
 class AuthController extends Controller
 {
-    // REGISTRO de nuevo usuario
+    
     public function register(Request $request)
     {
         $request->validate([
@@ -31,7 +31,7 @@ class AuthController extends Controller
                 'correo'   => $request->correo,
                 'password' => Hash::make($request->password),
                 'telefono' => $request->telefono,
-                'estado'   => $request->estado ?? 'Activo', // Valor por defecto
+                'estado'   => $request->estado ?? 'Activo', 
                 'ID_rol'   => $request->ID_rol,
                 'visible'  => 1
             ]);

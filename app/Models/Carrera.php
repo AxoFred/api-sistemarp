@@ -15,13 +15,4 @@ class Carrera extends Model
     protected $fillable = [
         'Nombre_Carrera',
     ];
-
-    public function serviciosSociales()
-    {
-        return $this->hasMany(
-            ServicioSocial::class,
-            'ID_Carrera',
-            'ID_Carrera'
-        );
-    }
 }
