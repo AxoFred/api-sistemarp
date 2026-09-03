@@ -5,6 +5,9 @@ use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\UsuariosController;
 use App\Http\Controllers\API\CarreraController;
 use App\Http\Controllers\API\MatriculaController;
+use App\Http\Controllers\API\ServicioSocialController;
+use App\Http\Controllers\API\ConvenioController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -55,6 +58,17 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/matriculas/{id}', [MatriculaController::class, 'show']);
     Route::put('/matriculas/{id}', [MatriculaController::class, 'update']);
     Route::delete('/matriculas/{id}', [MatriculaController::class, 'destroy']);
-    
-
+    // convenios
+    Route::get('/convenios', [ConvenioController::class, 'index']);
+    Route::post('/convenios', [ConvenioController::class, 'store']);
+    Route::get('/convenios/{id}', [ConvenioController::class, 'show']);
+    Route::put('/convenios/{id}', [ConvenioController::class, 'update']);
+    Route::delete('/convenios/{id}', [ConvenioController::class, 'destroy']);
+    // servicio social
+    Route::get('/servicio-social', [ServicioSocialController::class, 'index']);
+    Route::post('/servicio-social', [ServicioSocialController::class, 'store']);
+    Route::get('/servicio-social/{id}', [ServicioSocialController::class, 'show']);
+    Route::put('/servicio-social/{id}', [ServicioSocialController::class, 'update']);
+    Route::delete('/servicio-social/{id}', [ServicioSocialController::class, 'destroy']);
+   
 });
